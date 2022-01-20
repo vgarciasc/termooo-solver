@@ -57,7 +57,7 @@ class Game:
         self.print_log(verbose)
 
         if unaccented_guess == self.unaccented_word:
-            printv("You're correct!", verbose)
+            printv(f"You're correct! Won after {self.tries} tries.", verbose)
             self.done = True
             self.reward = 1
         

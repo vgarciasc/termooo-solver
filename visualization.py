@@ -23,6 +23,10 @@ def get_starter_words_data(valid_guesses, valid_solutions):
                 words=valid_solutions,
                 guess=remove_accents(guess),
                 response=response)
+            
+            if response == (1, 1, 1, 1, 1) and len(solutions) == 1:
+                solutions = []
+
             score += len(solutions)**2 / len(valid_solutions)
         printv(f"#({i} / {len(valid_guesses)}): \t Word '{guess}' has score {score}")
 
@@ -45,17 +49,19 @@ if __name__ == "__main__":
     #     json.dump(data, f, indent=2, ensure_ascii=False)
 
     data.sort(key=lambda x : x[1])
+    pdb.set_trace()
     data = data[:25]
 
-    clist = [(0.0, "lightsteelblue"), (1.0, "royalblue")]
+    clist = [(0.0, "palegreen"), (1.0, "mediumseagreen")]
+    # clist = [(0.0, "lightsteelblue"), (1.0, "royalblue")]
     rvb = mcolors.LinearSegmentedColormap.from_list("", clist)
 
     guesses, scores = zip(*data)
     cmap = rvb((scores - np.min(scores))/(np.max(scores) - np.min(scores)))
     plt.bar(guesses, scores, color=cmap, edgecolor='black')
     plt.xticks(rotation=90)
-    plt.title("50 melhores palavras iniciais para o term.ooo (conjunto completo)")
-    plt.ylabel("Média de palavras restantes")
+    plt.title("25 melhores palpites iniciais para o term.ooo (conjunto reduzido)")
+    plt.ylabel("Média de soluções possíveis restantes")
     plt.show()
 
     pdb.set_trace()
