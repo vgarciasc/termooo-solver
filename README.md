@@ -42,5 +42,5 @@ Quando o solucionador pedir uma resposta do jogo, forneça 5 dígitos:
 - `2` = Letra na palavra mas posição errada (amarelo)
 
 Exemplos: 
-1. `"serio"` → `[0,1,0,0,0]`: significa que 'e' está na posição correta, e nenhuma das outras letras existe na solução. 
-2. `"quase"` → `[2,0,0,0,0]`: significa que a resposta final contém 'q', mas não nesta posição, e nenhuma das outras letras aparece na solução. 
+1. `"serio"` → `[0,1,0,0,0]` (⬛🟩⬛⬛⬛): significa que 'e' está na posição correta, e nenhuma das outras letras existe na solução. 
+2. `"quase"` → `[2,0,0,0,0]` (🟨⬛⬛⬛⬛): significa que a resposta final contém 'q', mas não nesta posição, e nenhuma das outras letras aparece na solução. 
